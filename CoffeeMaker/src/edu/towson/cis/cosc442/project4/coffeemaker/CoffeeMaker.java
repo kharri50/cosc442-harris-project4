@@ -30,8 +30,10 @@ public class CoffeeMaker {
 	/**
 	 * Returns true if a recipe is successfully added to the 
 	 * coffee maker
+	 * 
+	 * 	 Method has been refactored to reduce cyclomatic complexity..
+
 	 * @param r
-	
 	 * @return boolean */
 	public boolean addRecipe(Recipe r) {
         boolean canAddRecipe = true;
@@ -43,7 +45,17 @@ public class CoffeeMaker {
             }
         }
         
-        //Check for an empty recipe, add recipe to first empty spot
+        canAddRecipe = checkAdditionOfRecipe(r, canAddRecipe);
+        return canAddRecipe;
+    }
+
+	/**
+	 * @param r
+	 * @param canAddRecipe
+	 * @return
+	 */
+	private boolean checkAdditionOfRecipe(Recipe r, boolean canAddRecipe) {
+		//Check for an empty recipe, add recipe to first empty spot
         if(canAddRecipe) {
         	int emptySpot = -1;
         	for(int i = 0; i < NUM_RECIPES; i++) {
@@ -60,9 +72,9 @@ public class CoffeeMaker {
         		canAddRecipe = false;
         	}
         }
-        return canAddRecipe;
-    }
-    
+		return canAddRecipe;
+	}
+	
 	/**
 	 * Returns true if the recipe was deleted from the 
 	 * coffee maker
