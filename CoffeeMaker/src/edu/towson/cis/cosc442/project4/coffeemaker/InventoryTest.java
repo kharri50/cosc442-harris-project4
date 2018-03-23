@@ -32,6 +32,61 @@ public class InventoryTest {
 		assertEquals(15, result.getMilk());
 		assertEquals(15, result.getCoffee());
 	}
+	
+	@Test 
+	public void testSetAmtCoffee() {
+		Inventory temp = new Inventory();
+		int coffeeAmount=1;
+		temp.setCoffee(coffeeAmount);
+		assertEquals(temp.getCoffee(), coffeeAmount);
+		
+		// test setting a negative number
+		temp.setCoffee(-29);
+		// make sure it's caught and actually equals zero
+		assertEquals(temp.getCoffee(), 0);
+	}
+	
+	@Test 
+	public void testSetAmtChocolate() {
+		Inventory temp = new Inventory();
+		int chocAmount=1;
+		temp.setChocolate(chocAmount);
+		assertEquals(temp.getChocolate(), chocAmount);
+		
+		// test setting a negative number
+		temp.setChocolate(-29);
+		// make sure it's caught and actually equals zero
+		assertEquals(temp.getChocolate(), 0);
+	}
+	
+	
+	@Test 
+	public void testSetAmtSugar() {
+		Inventory temp = new Inventory();
+		int sugarAmount=1;
+		temp.setSugar(sugarAmount);
+		assertEquals(temp.getSugar(), sugarAmount);
+		
+		// test setting a negative number
+		temp.setSugar(-29);
+		// make sure it's caught and actually equals zero
+		assertEquals(temp.getSugar(), 0);
+	}
+	
+	@Test 
+	public void testSetAmtMilk() {
+		Inventory temp = new Inventory();
+		int milkAmount=1;
+		temp.setMilk(milkAmount);
+		assertEquals(temp.getMilk(), milkAmount);
+		
+		// test setting a negative number
+		temp.setMilk(-29);
+		// make sure it's caught and actually equals zero
+		assertEquals(temp.getMilk(), 0);
+	}
+	
+	
 
 	/**
 	 * Run the boolean enoughIngredients(Recipe) method test.
@@ -423,9 +478,29 @@ public class InventoryTest {
 			r2.setAmtSugar(190);
 			r2.setAmtChocolate(26);
 			assertFalse(i.enoughIngredients(r2));	
+	}
+	
+	@Test
+	public void testEnoughIngredientsAlt() {
+		i.setCoffee(15);
+		i.setMilk(15);
+    		i.setSugar(15);
+    		i.setChocolate(15);
+    		
+    		
+    			Recipe r1 = new Recipe();
+			r1.setName("Coffee");
+			r1.setPrice(5);
+			r1.setAmtCoffee(15);
+			r1.setAmtMilk(15);
+			r1.setAmtSugar(15);
+			r1.setAmtChocolate(15);
 			
+			assertTrue(i.enoughIngredients(r1));
 			
 	}
+	
+	
 	
 	@Test 
 	public void testToString() {

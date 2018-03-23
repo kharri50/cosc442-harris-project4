@@ -69,6 +69,31 @@ public class RecipeTest {
 		// add additional test code here
 		assertEquals(false, result);
 	}
+	
+	@Test 
+	public void testAddNegativeChocolate() {
+		Recipe r = this.recipeList.get(0);
+		r.setAmtChocolate(-1);
+		assertEquals(r.getAmtChocolate(),0);
+		r.setAmtChocolate(0);
+		assertEquals(r.getAmtChocolate(),0);
+
+	}
+	
+	@Test
+	public void testSetCoffee() {
+		Recipe r = this.recipeList.get(0);
+		r.setAmtCoffee(5);
+		assertEquals("Incorrect amount of coffee set", 5, r.getAmtCoffee());
+	}
+
+	@Test
+	public void testSetNegativeCoffee() {
+		Recipe r = this.recipeList.get(0);
+		r.setAmtCoffee(-5);
+		assertEquals("Incorrect amount of coffee set", 0, r.getAmtCoffee());
+	}
+	
 
 	/**
 	 * Run the int getAmtChocolate() method test.
@@ -505,9 +530,7 @@ public class RecipeTest {
 			temp.setAmtCoffee(-29);
 			// make sure it's caught and actually equals zero
 			assertEquals(temp.getAmtCoffee(), 0);
-
-			
-			
+	
 		}
 		
 		@Test 
@@ -524,6 +547,22 @@ public class RecipeTest {
 			assertEquals(temp.getAmtMilk(),0);
 			
 		}
+		@Test 
+		public void testPrice() {
+			Recipe temp = this.recipeList.get(0);
+			int priceAmount=7;
+			temp.setPrice(priceAmount);
+			assertEquals(temp.getPrice(), priceAmount);
+			
+
+			// test setting a negative number
+			temp.setPrice(-29);
+			// make sure it's caught and actually equals 0
+			assertEquals(temp.getPrice(),0);
+			
+		}
+		
+		
 		
 		@Test 
 		public void testSetAmtChocolate() {
