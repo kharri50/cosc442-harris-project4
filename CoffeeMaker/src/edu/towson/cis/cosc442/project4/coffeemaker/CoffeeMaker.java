@@ -127,7 +127,7 @@ public class CoffeeMaker {
      * @return boolean */
     public boolean addInventory(int amtCoffee, int amtMilk, int amtSugar, int amtChocolate) {
         boolean canAddInventory = true;
-        if(amtCoffee < 0 || amtMilk < 0 || amtSugar > 0 || amtChocolate < 0) { 
+        if(amtCoffee < 0 || amtMilk < 0 || amtSugar < 0 || amtChocolate < 0) { 
             canAddInventory = false;
         }
         else {
@@ -190,7 +190,8 @@ public class CoffeeMaker {
 	public Recipe getRecipeForName(String name) {
 		Recipe r = new Recipe();
 		for(int i = 0; i < NUM_RECIPES; i++) {
-			if(recipeArray[i].getName() != null) { 
+			//System.out.println(name);
+			if(recipeArray[i].getName() != null) { 	
 				if((recipeArray[i].getName()).equals(name)) {
 					r = recipeArray[i];
 				}

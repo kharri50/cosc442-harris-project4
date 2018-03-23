@@ -94,7 +94,7 @@ public class Recipe {
      * @return String
      */
     public String getName() {
-        return name;
+        return this.name;
     }
     /**
      * Method setName.
